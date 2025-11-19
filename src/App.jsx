@@ -1,72 +1,74 @@
+import Hero from './components/Hero'
+import Amenities from './components/Amenities'
+import Location from './components/Location'
+import Booking from './components/Booking'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
-
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
-          </div>
+    <div className="bg-white text-slate-900">
+      {/* SEO meta for basic discoverability */}
+      <SEO />
+      <header className="absolute top-0 left-0 right-0 z-20">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+          <a href="#" className="text-white font-extrabold tracking-tight text-xl">The Regal Retreat</a>
+          <nav className="hidden md:flex items-center gap-6 text-white/90">
+            <a href="#amenities" className="hover:text-white">Amenities</a>
+            <a href="#book" className="hover:text-white">Book</a>
+            <a href="#location" className="hover:text-white">Location</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <Amenities />
+        <Location />
+        <Booking />
+      </main>
+
+      <Footer />
     </div>
+  )
+}
+
+function SEO() {
+  return (
+    <>
+      <title>The Regal Retreat • Studio Stay in Bhuj Kutch — Near NY Cinema & Airport</title>
+      <meta name="description" content="The Regal Retreat in Bhuj Kutch — a minimal, aesthetic studio apartment with self check-in, private entry, projector for movie nights, kitchen, and essentials. Beside NY Cinema, Seven Sky Clerk Exotica & Mall, near the airport." />
+      <meta name="keywords" content="Bhuj stay, Kutch studio apartment, Bhuj Airbnb, near NY Cinema Bhuj, Seven Sky Clerk Exotica hotel, Seven Sky Mall, Bhuj airport stay, projector apartment Bhuj, self check-in Bhuj, studio for 4 Bhuj" />
+      <meta property="og:title" content="The Regal Retreat • Studio Stay in Bhuj Kutch" />
+      <meta property="og:description" content="Minimal, cozy studio with projector and private entry, beside NY Cinema & Seven Sky, near Bhuj Airport. Perfect for 2–4 guests." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href={typeof window !== 'undefined' ? window.location.href : ''} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LodgingBusiness',
+        name: 'The Regal Retreat',
+        description: 'Minimal aesthetic studio apartment in Bhuj Kutch with projector, kitchen, and self check-in. Beside NY Cinema & Seven Sky, near airport.',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Bhuj',
+          addressRegion: 'Kutch',
+          addressCountry: 'IN'
+        },
+        amenityFeature: [
+          { '@type': 'LocationFeatureSpecification', name: 'Private entry & self check-in' },
+          { '@type': 'LocationFeatureSpecification', name: 'Projector & sofa-cum-bed' },
+          { '@type': 'LocationFeatureSpecification', name: '6x6 double bed' },
+          { '@type': 'LocationFeatureSpecification', name: 'Kitchen with induction & spices' },
+          { '@type': 'LocationFeatureSpecification', name: 'Bathroom with shower & dispensers' },
+          { '@type': 'LocationFeatureSpecification', name: 'Common parking space' }
+        ],
+        url: typeof window !== 'undefined' ? window.location.href : 'https://regalretreat.example',
+        sameAs: [
+          'https://maps.google.com/?q=NY%20Cinema%20Bhuj'
+        ]
+      }) }} />
+    </>
   )
 }
 
